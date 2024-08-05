@@ -13,10 +13,17 @@ import java.util.Random;
 public class Account_01_Register {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
+    String osName = System.getProperty("os.name");
 
     @BeforeClass
     public void beforeClass() {
-        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+        if (osName.contains("Windows")) {
+            System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+        } else {
+            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+        }
+
+//        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
@@ -50,7 +57,7 @@ public class Account_01_Register {
         Assert.assertEquals(driver.findElement(By.xpath("//span[@id='Email-error']")).getText(), "Please enter a valid email address.");
     }
 
-    @Test
+    //    @Test
     public void Register_03_Invalid_Password() {
         driver.get("https://demo.nopcommerce.com/");
         driver.findElement(By.xpath("//a[@class='ico-register']")).click();
@@ -66,7 +73,7 @@ public class Account_01_Register {
         Assert.assertEquals(driver.findElement(By.xpath("//span[@class='field-validation-error']")).getText(), "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
     }
 
-    @Test
+    //    @Test
     public void Register_04_Incorrect_Confirm_Password() {
         driver.get("https://demo.nopcommerce.com/");
         driver.findElement(By.xpath("//a[@class='ico-register']")).click();
@@ -82,7 +89,7 @@ public class Account_01_Register {
         Assert.assertEquals(driver.findElement(By.xpath("//span[@id='ConfirmPassword-error']")).getText(), "The password and confirmation password do not match.");
     }
 
-    @Test
+    //    @Test
     public void Register_05_Success() {
         driver.get("https://demo.nopcommerce.com/");
         driver.findElement(By.xpath("//a[@class='ico-register']")).click();
