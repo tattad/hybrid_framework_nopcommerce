@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.Set;
 
 public class BasePage {
+    //Không cần khởi tạo đối tượng mà vẫn truy cập vào hàm này được
+    public static BasePage getBasePage() {
+        return new BasePage();
+    }
+
     // 1 - Access Modifier: public/ protected/ private/ default
 
     // 2 - Kiểu dữ liệu của hàm (Data type): void/ int/ String/ boolean/ WebElement/ List<WebElement>/ ...
@@ -149,7 +154,7 @@ public class BasePage {
         getWebElement(driver, locator).click();
     }
 
-    public void sendkeyoElement(WebDriver driver, String locator, String valueToSend) {
+    public void sendkeyToElement(WebDriver driver, String locator, String valueToSend) {
         getWebElement(driver, locator).clear();
         getWebElement(driver, locator).sendKeys(valueToSend);
     }
