@@ -28,14 +28,14 @@ public class Level_03_PageObject extends BasePage {
         driver = new FirefoxDriver();
         driver.get("https://demo.nopcommerce.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
     }
 
     @Test
     public void User_01_Register_Empty_Data() {
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
         registerPage.clickToRegisterBtn();
         Assert.assertEquals(registerPage.getFirstNameErrorMsg(), "First name is required.");
         Assert.assertEquals(registerPage.getLastNameErrorMsg(), "Last name is required.");
@@ -47,10 +47,10 @@ public class Level_03_PageObject extends BasePage {
     public void User_02_Register_Invalid_Email() {
         registerPage.clickToNopCommerceLogo();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
         registerPage.enterToEmailTextbox("abc@def@gh");
@@ -66,10 +66,10 @@ public class Level_03_PageObject extends BasePage {
     public void User_03_Register_Invalid_Password() {
         registerPage.clickToNopCommerceLogo();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
         registerPage.enterToEmailTextbox("abc@gmail.com");
@@ -83,10 +83,10 @@ public class Level_03_PageObject extends BasePage {
     public void User_04_Register_Incorrect_Confirm_Password() {
         registerPage.clickToNopCommerceLogo();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
         registerPage.enterToEmailTextbox("abc@gmail.com");
@@ -100,10 +100,10 @@ public class Level_03_PageObject extends BasePage {
     public void User_05_Register_Success() {
         registerPage.clickToNopCommerceLogo();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
         registerPage.enterToEmailTextbox(emailAddres);
@@ -119,21 +119,21 @@ public class Level_03_PageObject extends BasePage {
     public void User_06_Login_Success() {
         registerPage.clickToNopCommerceLogo();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToLoginLink();
 
-        loginPage = new LoginPageObject();
+        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(emailAddres);
         loginPage.enterToPasswordTextbox("123456");
         loginPage.clickToLoginBtn();
 
-        homePage = new HomePageObject();
+        homePage = new HomePageObject(driver);
         homePage.clickToMyAccountLink();
 
-        customerPage = new CustomerPageObejct();
-        Assert.assertEquals(customerPage.getFirstNameTextboAttributeValue(),"abc");
-        Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(),"def");
-        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(),emailAddres);
+        customerPage = new CustomerPageObejct(driver);
+        Assert.assertEquals(customerPage.getFirstNameTextboAttributeValue(), "abc");
+        Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "def");
+        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddres);
     }
 
     @AfterClass
