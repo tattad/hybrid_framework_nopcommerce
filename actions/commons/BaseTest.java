@@ -1,5 +1,6 @@
 package commons;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -30,13 +31,21 @@ public class BaseTest {
 
         switch (browser) {
             case FIREFOX:
+                //4.x 5.x: Tải về driver và setting biến môi trường
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
+
+                //5.x: Tải về driver + setting biến môi trường và khởi tạo browser lên
+                driver = WebDriverManager.firefoxdriver().create();
                 break;
             case CHROME:
-                driver = new ChromeDriver();
+                driver = WebDriverManager.chromedriver().create();
                 break;
             case EDGE:
-                driver = new EdgeDriver();
+                driver = WebDriverManager.operadriver().create();
+                break;
+            case OPERA:
+                driver = WebDriverManager.operadriver().create();
                 break;
             default:
                 throw new RuntimeException("Browser name is invalid.");
