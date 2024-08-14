@@ -3,10 +3,10 @@ package com.nopcommerce.account;
 import commons.BasePage;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.CustomerPageObejct;
 import pageObjects.HomePageObject;
@@ -16,7 +16,8 @@ import pageObjects.RegisterPageObject;
 import java.time.Duration;
 import java.util.Random;
 
-public class Level_03_PageObject extends BaseTest {
+public class Level_04_Multiple_Browser extends BaseTest {
+
     private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
@@ -24,11 +25,10 @@ public class Level_03_PageObject extends BaseTest {
     private CustomerPageObejct customerPage;
     private String emailAddres = getEmailRandom();
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
-        driver = new FirefoxDriver();
-        driver.get("https://demo.nopcommerce.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    public void beforeClass(String browserName) {
+        driver = getBrowserDriver(browserName);
         homePage = new HomePageObject(driver);
     }
 
@@ -139,8 +139,11 @@ public class Level_03_PageObject extends BaseTest {
 
     @AfterClass
     public void afterClass() {
-        driver.quit();
+        closeBrowser();
     }
 
+    public String getEmailRandom() {
+        Random rand = new Random();
+        return "abc" + rand.nextInt(99999) + "@gmail.com";
+    }
 }
-
