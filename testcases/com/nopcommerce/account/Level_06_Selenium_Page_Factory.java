@@ -7,20 +7,20 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.CustomerPageObejct;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObject.factory.CustomerPageObject;
+import pageObject.factory.HomePageObject;
+import pageObject.factory.LoginPageObject;
+import pageObject.factory.RegisterPageObject;
 
 import java.util.Random;
 
-public class Level_05_WebDriverManager_SeleniumManager extends BaseTest {
+public class Level_06_Selenium_Page_Factory extends BaseTest {
 
     private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
-    private CustomerPageObejct customerPage;
+    private CustomerPageObject customerPage;
     private String emailAddres = getEmailRandom();
 
     @Parameters("browser")
@@ -134,7 +134,7 @@ public class Level_05_WebDriverManager_SeleniumManager extends BaseTest {
         homePage = new HomePageObject(driver);
         homePage.clickToMyAccountLink();
 
-        customerPage = new CustomerPageObejct(driver);
+        customerPage = new CustomerPageObject(driver);
         Assert.assertEquals(customerPage.getFirstNameTextboAttributeValue(), "abc");
         Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "def");
         Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddres);
