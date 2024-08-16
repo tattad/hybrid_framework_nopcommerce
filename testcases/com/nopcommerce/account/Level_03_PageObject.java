@@ -23,11 +23,12 @@ public class Level_03_PageObject extends BaseTest {
     private LoginPageObject loginPage;
     private CustomerPageObejct customerPage;
     private String emailAddres = getEmailRandom();
+    private String password = "123456";
 
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get("http://demo.nopcommerce/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         homePage = new HomePageObject(driver);
     }
@@ -77,7 +78,9 @@ public class Level_03_PageObject extends BaseTest {
         registerPage.enterToPasswordTextbox("123");
         registerPage.enterToConfirmPasswordTextbox("123");
 
-        Assert.assertEquals(registerPage.getConfirmPasswordErrorMsg(), "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
+        registerPage.clickToRegisterBtn();
+
+        Assert.assertEquals(registerPage.getPasswordErrorMsg(), "<p>must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
     }
 
     @Test
@@ -94,6 +97,8 @@ public class Level_03_PageObject extends BaseTest {
         registerPage.enterToPasswordTextbox("123456");
         registerPage.enterToConfirmPasswordTextbox("1234567");
 
+        registerPage.clickToRegisterBtn();
+
         Assert.assertEquals(registerPage.getConfirmPasswordErrorMsg(), "The password and confirmation password do not match.");
     }
 
@@ -108,8 +113,8 @@ public class Level_03_PageObject extends BaseTest {
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
         registerPage.enterToEmailTextbox(emailAddres);
-        registerPage.enterToPasswordTextbox("123456");
-        registerPage.enterToConfirmPasswordTextbox("123456");
+        registerPage.enterToPasswordTextbox(password);
+        registerPage.enterToConfirmPasswordTextbox(password);
 
         registerPage.clickToRegisterBtn();
 
@@ -121,11 +126,12 @@ public class Level_03_PageObject extends BaseTest {
         registerPage.clickToNopCommerceLogo();
 
         homePage = new HomePageObject(driver);
+        homePage.clickToLogoutLink();
         homePage.clickToLoginLink();
 
         loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(emailAddres);
-        loginPage.enterToPasswordTextbox("123456");
+        loginPage.enterToPasswordTextbox(password);
         loginPage.clickToLoginBtn();
 
         homePage = new HomePageObject(driver);

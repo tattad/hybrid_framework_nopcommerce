@@ -12,5 +12,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="selenium-server-4.18.1" level="project" />
     <orderEntry type="library" name="testng-7.9.0" level="project" />
+    <orderEntry type="library" name="bcpkix-jdk18on-1.75" level="project" />
+    <orderEntry type="library" name="bcpkix-jdk18on-1.75 (2)" level="project" />
   </component>
 </module>

@@ -31,6 +31,11 @@ public class RegisterPageObject extends BasePage {
         return getWebElementText(driver, RegisterPageUI.EMAIL_ERROR_MSG);
     }
 
+    public String getPasswordErrorMsg() {
+        waitForElementVisible(driver, RegisterPageUI.PASSWORD_ERROR_MSG);
+        return getWebElementText(driver, RegisterPageUI.PASSWORD_ERROR_MSG);
+    }
+
     public String getConfirmPasswordErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MSG);
         return getWebElementText(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MSG);

@@ -19,30 +19,33 @@ public class BaseTest {
 
     protected WebDriver getBrowserDriver(String browserName) {
         BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
-        if (browser == FIREFOX) {
-            driver = new FirefoxDriver();
-        } else if (browser == CHROME) {
-            driver = new ChromeDriver();
-        } else if (browser == BrowserList.EDGE) {
-            driver = new EdgeDriver();
-        } else {
-            throw new RuntimeException("Browser name is invalid.");
-        }
+//        if (browser == FIREFOX) {
+//            driver = new FirefoxDriver();
+//        } else if (browser == CHROME) {
+//            driver = new ChromeDriver();
+//        } else if (browser == BrowserList.EDGE) {
+//            driver = new EdgeDriver();
+//        } else {
+//            throw new RuntimeException("Browser name is invalid.");
+//        }
 
         switch (browser) {
             case FIREFOX:
                 //4.x 5.x: Tải về driver và setting biến môi trường
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+//                WebDriverManager.firefoxdriver().setup();
+//                driver = new FirefoxDriver();
 
                 //5.x: Tải về driver + setting biến môi trường và khởi tạo browser lên
                 driver = WebDriverManager.firefoxdriver().create();
+
+                //Selenium Manager
+//                driver = new FirefoxDriver();
                 break;
             case CHROME:
                 driver = WebDriverManager.chromedriver().create();
                 break;
             case EDGE:
-                driver = WebDriverManager.operadriver().create();
+                driver = WebDriverManager.edgedriver().create();
                 break;
             case OPERA:
                 driver = WebDriverManager.operadriver().create();
@@ -54,7 +57,7 @@ public class BaseTest {
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().setSize(new Dimension(1920, 1080));
 
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get("http://demo.nopcommerce/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
     }

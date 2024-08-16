@@ -13,7 +13,9 @@ public class RegisterPageUI {
     public static final String FIRSTNAME_ERROR_MSG = "//span[@id='FirstName-error']";
     public static final String LASTNAME_ERROR_MSG = "//span[@id='LastName-error']";
     public static final String EMAIL_ERROR_MSG = "//span[@id='Email-error']";
+    public static final String PASSWORD_ERROR_MSG = "//span[@data-valmsg-for='Password']";
     public static final String CONFIRM_PASSWORD_ERROR_MSG = "//span[@id='ConfirmPassword-error']";
     public static final String REGISTRATION_COMPLETED_MSG = "//div[@class='result']";
     public static final String NOP_COMMERCE_LOGO = "//div[@class='header-logo']//img";
 }
+//input[@id='Password']/following-sibling::span[@class='field-validation-error']

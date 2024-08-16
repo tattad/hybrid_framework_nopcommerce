@@ -77,7 +77,9 @@ public class Level_04_Multiple_Browser extends BaseTest {
         registerPage.enterToPasswordTextbox("123");
         registerPage.enterToConfirmPasswordTextbox("123");
 
-        Assert.assertEquals(registerPage.getConfirmPasswordErrorMsg(), "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
+        registerPage.clickToRegisterBtn();
+
+        Assert.assertEquals(registerPage.getPasswordErrorMsg(), "<p>must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
     }
 
     @Test
@@ -93,6 +95,8 @@ public class Level_04_Multiple_Browser extends BaseTest {
         registerPage.enterToEmailTextbox("abc@gmail.com");
         registerPage.enterToPasswordTextbox("123456");
         registerPage.enterToConfirmPasswordTextbox("1234567");
+
+        registerPage.clickToRegisterBtn();
 
         Assert.assertEquals(registerPage.getConfirmPasswordErrorMsg(), "The password and confirmation password do not match.");
     }
@@ -121,6 +125,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
         registerPage.clickToNopCommerceLogo();
 
         homePage = new HomePageObject(driver);
+        homePage.clickToLogoutLink();
         homePage.clickToLoginLink();
 
         loginPage = new LoginPageObject(driver);
