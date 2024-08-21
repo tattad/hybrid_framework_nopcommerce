@@ -134,7 +134,7 @@ public class BasePage {
         }
     }
 
-    public void deleteCookie(WebDriver driver) {
+    public void deleteAllCookie(WebDriver driver) {
         driver.manage().deleteAllCookies();
     }
 
