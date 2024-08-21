@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="NopCommerce">
+
+    <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.nopcommerce.account.Level_07_Page_Manager_1"></class>
+            <class name="com.nopcommerce.account.Level_07_Page_Manager_2"></class>
+            <class name="com.nopcommerce.account.Level_07_Page_Manager_3"></class>
+        </classes>
+    </test>
+</suite>
