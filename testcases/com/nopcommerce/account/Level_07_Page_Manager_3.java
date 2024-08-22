@@ -22,7 +22,7 @@ public class Level_07_Page_Manager_3 extends BaseTest {
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
     private CustomerPageObejct customerPage;
-    private String emailAddres = getEmailRandom();
+    private String emailAddress = getEmailRandom();
 
     @Parameters("browser")
     @BeforeClass
@@ -102,7 +102,7 @@ public class Level_07_Page_Manager_3 extends BaseTest {
 
         registerPage.enterToFirstNameTextbox("abc");
         registerPage.enterToLastNameTextbox("def");
-        registerPage.enterToEmailTextbox(emailAddres);
+        registerPage.enterToEmailTextbox(emailAddress);
         registerPage.enterToPasswordTextbox("123456");
         registerPage.enterToConfirmPasswordTextbox("123456");
 
@@ -118,7 +118,7 @@ public class Level_07_Page_Manager_3 extends BaseTest {
         homePage.clickToLogoutLink();
         loginPage = homePage.clickToLoginLink();
 
-        loginPage.enterToEmailTextbox(emailAddres);
+        loginPage.enterToEmailTextbox(emailAddress);
         loginPage.enterToPasswordTextbox("123456");
         homePage = loginPage.clickToLoginBtn();
 
@@ -126,7 +126,7 @@ public class Level_07_Page_Manager_3 extends BaseTest {
 
         Assert.assertEquals(customerPage.getFirstNameTextboAttributeValue(), "abc");
         Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "def");
-        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddres);
+        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddress);
     }
 
     @AfterClass

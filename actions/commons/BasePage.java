@@ -1,13 +1,13 @@
 package commons;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
+import pageObjects.*;
+import pageUIs.BasePageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -355,5 +355,47 @@ public class BasePage {
 
     public void waitForElementClickable(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getWebElement(driver, locator)));
+    }
+
+    public AddressPageObject openAddressPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.ADDRESS_LINK_TEXT);
+        clickToElement(driver, BasePageUI.ADDRESS_LINK_TEXT);
+        return PageGeneratorManager.getAddressPage(driver);
+    }
+
+    public OrderPageObject openOrderPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.ORDER_LINK_TEXT);
+        clickToElement(driver, BasePageUI.ORDER_LINK_TEXT);
+        return PageGeneratorManager.getOrderPage(driver);
+    }
+
+    public RewardPointsPageObject openRewardPointsPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.REWARD_POINTS_LINK_TEXT);
+        clickToElement(driver, BasePageUI.REWARD_POINTS_LINK_TEXT);
+        return PageGeneratorManager.getRewardPointsPage(driver);
+    }
+
+    public CustomerPageObejct openCustomerPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
+        clickToElement(driver, BasePageUI.CUSTOMER_INFO_LINK_TEXT);
+        return PageGeneratorManager.getCustomerPage(driver);
+    }
+
+    public SitemapPageObject getSitemapPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.SITEMAP_LINK_TEXT);
+        clickToElement(driver, BasePageUI.SITEMAP_LINK_TEXT);
+        return PageGeneratorManager.getSitemapPage(driver);
+    }
+
+    public PrivacyNoticePageObject getPrivacyNoticePage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.PRIVACY_NOTICE_LINK_TEXT);
+        clickToElement(driver, BasePageUI.PRIVACY_NOTICE_LINK_TEXT);
+        return PageGeneratorManager.getPrivacyNoticePage(driver);
+    }
+
+    public BlogPageObject getBlogPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.BLOG_LINK_TEXT);
+        clickToElement(driver, BasePageUI.BLOG_LINK_TEXT);
+        return PageGeneratorManager.getBlogPage(driver);
     }
 }
