@@ -5,10 +5,11 @@ import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import pageUIs.CustomerPageUI;
 
-public class CustomerPageObejct extends BasePage {
+public class CustomerPageObejct extends MyAccountSideBarPageObject {
     WebDriver driver;
 
     public CustomerPageObejct(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

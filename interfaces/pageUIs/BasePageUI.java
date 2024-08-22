@@ -2,11 +2,6 @@ package pageUIs;
 
 public class BasePageUI {
 
-    public static final String ADDRESS_LINK_TEXT = "//div[@class='side-2']//a[text()='Addresses']";
-    public static final String ORDER_LINK_TEXT = "//div[@class='side-2']//a[text()='Orders']";
-    public static final String REWARD_POINTS_LINK_TEXT = "//div[@class='side-2']//a[text()='Reward points']";
-    public static final String CUSTOMER_INFO_LINK_TEXT = "//div[@class='side-2']//a[text()='Customer info']";
-
     public static final String SITEMAP_LINK_TEXT = "//div[@class='footer']//a[text()='Sitemap']";
     public static final String PRIVACY_NOTICE_LINK_TEXT = "//div[@class='footer']//a[text()='Privacy notice']";
     public static final String BLOG_LINK_TEXT = "//div[@class='footer']//a[text()='Blog']";
