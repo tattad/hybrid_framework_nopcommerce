@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.user;
 
 public class RegisterPageUI {
     //Tránh việc lặp lại

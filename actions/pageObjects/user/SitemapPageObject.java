@@ -1,12 +1,12 @@
-package pageObjects;
+package pageObjects.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 
-public class BlogPageObject extends BasePage {
+public class SitemapPageObject extends BasePage {
     WebDriver driver;
 
-    public BlogPageObject(WebDriver driver) {
+    public SitemapPageObject(WebDriver driver) {
         this.driver = driver;
     }
 }

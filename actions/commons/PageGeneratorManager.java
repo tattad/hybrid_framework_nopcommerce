@@ -1,7 +1,9 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.*;
+import pageObjects.admin.AdminDashboardPageObject;
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.user.*;
 
 public class PageGeneratorManager {
 
@@ -9,8 +11,8 @@ public class PageGeneratorManager {
         return new HomePageObject(driver);
     }
 
-    public static LoginPageObject getLoginPage(WebDriver driver) {
-        return new LoginPageObject(driver);
+    public static UserLoginPageObject getUserLoginPage(WebDriver driver) {
+        return new UserLoginPageObject(driver);
     }
 
     public static RegisterPageObject getRegisterPage(WebDriver driver) {
@@ -43,5 +45,13 @@ public class PageGeneratorManager {
 
     public static BlogPageObject getBlogPage(WebDriver driver) {
         return new BlogPageObject(driver);
+    }
+
+    public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
+        return new AdminLoginPageObject(driver);
+    }
+
+    public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
+        return new AdminDashboardPageObject(driver);
     }
 }

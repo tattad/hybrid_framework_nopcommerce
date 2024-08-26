@@ -7,10 +7,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.CustomerPageObejct;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.CustomerPageObejct;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.RegisterPageObject;
 
 import java.util.Random;
 
@@ -19,7 +19,7 @@ public class Level_07_Page_Manager_2 extends BaseTest {
     private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
+    private UserLoginPageObject loginPage;
     private CustomerPageObejct customerPage;
     private String emailAddres = getEmailRandom();
 

@@ -62,6 +62,34 @@ public class BaseTest {
         return driver;
     }
 
+    protected WebDriver getBrowserDriver(String browserName, String url) {
+        BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
+
+        switch (browser) {
+            case FIREFOX:
+                driver = WebDriverManager.firefoxdriver().create();
+                break;
+            case CHROME:
+                driver = WebDriverManager.chromedriver().create();
+                break;
+            case EDGE:
+                driver = WebDriverManager.edgedriver().create();
+                break;
+            case OPERA:
+                driver = WebDriverManager.operadriver().create();
+                break;
+            default:
+                throw new RuntimeException("Browser name is invalid.");
+        }
+
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+
+        driver.get(url);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        return driver;
+    }
+
     protected String getEmailRandom() {
         Random rand = new Random();
         return "abc" + rand.nextInt(99999) + "@gmail.com";

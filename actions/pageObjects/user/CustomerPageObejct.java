@@ -1,9 +1,7 @@
-package pageObjects;
+package pageObjects.user;
 
-import commons.BasePage;
-import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import pageUIs.CustomerPageUI;
+import pageUIs.user.CustomerPageUI;
 
 public class CustomerPageObejct extends MyAccountSideBarPageObject {
     WebDriver driver;

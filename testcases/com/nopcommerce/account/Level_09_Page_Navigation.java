@@ -12,7 +12,7 @@ import pageObjects.user.*;
 
 import java.util.Random;
 
-public class Level_08_Switch_Page extends BaseTest {
+public class Level_09_Page_Navigation extends BaseTest {
 
     private WebDriver driver;
     private HomePageObject homePage;
@@ -69,39 +69,43 @@ public class Level_08_Switch_Page extends BaseTest {
     }
 
     @Test
-    public void User_03_Switch_Page() {
+    public void User_03_Page_Navigation() {
         //Customer Page -> Address Page
-//        addressPage = customerPage.openAddressPage(driver);
+        addressPage = customerPage.openAddressPage();
 
         //Address Page -> Order Page
-//        orderPage = addressPage.openOrderPage(driver);
+        orderPage = addressPage.openOrderPage();
 
         //Order Page -> Customer Page
-        //customerPage = orderPage.openCustomerPage(driver);
+        customerPage = orderPage.openCustomerPage();
 
         //Customer Page -> Order Page
-        //orderPage = customerPage.openOrderPage(driver);
+        orderPage = customerPage.openOrderPage();
 
         //Order Page -> Address Page
-        //addressPage = orderPage.openAddressPage(driver);
+        addressPage = orderPage.openAddressPage();
 
         //Address Page -> Reward Points Page
-        //rewardPointsPage = addressPage.openRewardPointsPage(driver);
+        rewardPointsPage = addressPage.openRewardPointsPage();
 
         //Reward Points Page -> Customer Page
-        //customerPage = rewardPointsPage.openCustomerPage(driver);
+        customerPage = rewardPointsPage.openCustomerPage();
 
         //Customer Page -> Reward Points Page
-        //rewardPointsPage = customerPage.openRewardPointsPage(driver);
+        rewardPointsPage = customerPage.openRewardPointsPage();
 
         //Reward Points Page -> Sitemap Page
-        //sitemapPage = rewardPointsPage.getSitemapPage(driver);
+        sitemapPage = rewardPointsPage.getSitemapPage(driver);
 
         //Sitemap Page -> Privacy Notice page
-        //privacyNoticePage = sitemapPage.getPrivacyNoticePage(driver);
+        privacyNoticePage = sitemapPage.getPrivacyNoticePage(driver);
 
         //Privacy Notice page -> Blog Page
-        //blogPage = privacyNoticePage.getBlogPage(driver);
+        blogPage = privacyNoticePage.getBlogPage(driver);
+
+        //Gọi sai business như 2 page này sẽ báo lỗi ngay trong lúc code
+//        loginPage.openAddressPage();
+//        registerPage.openCustomerPage();
     }
 
     @AfterClass
