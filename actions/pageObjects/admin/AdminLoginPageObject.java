@@ -28,9 +28,16 @@ public class AdminLoginPageObject extends BasePage {
         return PageGeneratorManager.getAdminDashboardPage(driver);
     }
 
+    public AdminDashboardPageObject clickToAdministrationLink() {
+        waitForElementClickable(driver, AdminLoginPageUI.ADMINISTRATION_LINK);
+        clickToElement(driver, AdminLoginPageUI.ADMINISTRATION_LINK);
+        return PageGeneratorManager.getAdminDashboardPage(driver);
+    }
+
     public AdminDashboardPageObject loginToAdmin(String emailAddress, String password) {
         enterToEmailTextbox(emailAddress);
         enterToPasswordTextbox(password);
-        return clickToLoginBtn();
+        clickToLoginBtn();
+        return clickToAdministrationLink();
     }
 }

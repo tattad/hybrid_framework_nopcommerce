@@ -58,7 +58,7 @@ public class BaseTest {
         driver.manage().window().setSize(new Dimension(1920, 1080));
 
         driver.get("http://demo.nopcommerce/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GloblalConstants.LONG_TIMEOUT));
         return driver;
     }
 
@@ -86,7 +86,7 @@ public class BaseTest {
         driver.manage().window().setSize(new Dimension(1920, 1080));
 
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GloblalConstants.LONG_TIMEOUT));
         return driver;
     }
 
