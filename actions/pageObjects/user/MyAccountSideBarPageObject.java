@@ -35,4 +35,28 @@ public class MyAccountSideBarPageObject extends BasePage {
         clickToElement(driver, MyAccountSideBarPageUI.CUSTOMER_INFO_LINK_TEXT);
         return PageGeneratorManager.getCustomerPage(driver);
     }
+
+    public MyAccountSideBarPageObject openDynamicSidebarPage(String pageName) {
+        waitForElementClickable(driver, MyAccountSideBarPageUI.DYNAMIC_SIDEBAR_LINK_TEXT, pageName);
+        clickToElement(driver, MyAccountSideBarPageUI.CUSTOMER_INFO_LINK_TEXT, pageName);
+
+        switch (pageName) {
+            case "Customer info":
+                return PageGeneratorManager.getCustomerPage(driver);
+            case "Addresses":
+                return PageGeneratorManager.getAddressPage(driver);
+            case "Orders":
+                return PageGeneratorManager.getOrderPage(driver);
+            case "Reward points":
+                return PageGeneratorManager.getRewardPointsPage(driver);
+            default:
+                new RuntimeException("Sidebar page name is incorrect!");
+                return null;
+        }
+    }
+
+    public void openDynamicSidebarPageByName(String pageName) {
+        waitForElementClickable(driver, MyAccountSideBarPageUI.DYNAMIC_SIDEBAR_LINK_TEXT, pageName);
+        clickToElement(driver, MyAccountSideBarPageUI.CUSTOMER_INFO_LINK_TEXT, pageName);
+    }
 }

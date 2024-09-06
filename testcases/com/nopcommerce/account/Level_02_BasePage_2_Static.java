@@ -30,10 +30,10 @@ public class Level_02_BasePage_2_Static {
         basePage.clickToElement(driver, "//a[@class='ico-register']");
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='FirstName-error']"), "First name is required.");
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='LastName-error']"), "Last name is required.");
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='Email-error']"), "Email is required.");
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='ConfirmPassword-error']"), "Password is required.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='FirstName-error']"), "First name is required.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='LastName-error']"), "Last name is required.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='Email-error']"), "Email is required.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='ConfirmPassword-error']"), "Password is required.");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class Level_02_BasePage_2_Static {
 
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='Email-error']"), "Please enter a valid email address.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='Email-error']"), "Please enter a valid email address.");
     }
 
     @Test
@@ -65,7 +65,7 @@ public class Level_02_BasePage_2_Static {
 
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@class='field-validation-error']"), "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@class='field-validation-error']"), "<p>Password must meet the following rules: </p><ul><li>must have at least 6 characters and not greater than 64 characters</li></ul>");
     }
 
     @Test
@@ -81,7 +81,7 @@ public class Level_02_BasePage_2_Static {
 
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
-        Assert.assertEquals(basePage.getWebElementText(driver, "//span[@id='ConfirmPassword-error']"), "The password and confirmation password do not match.");
+        Assert.assertEquals(basePage.getElementText(driver, "//span[@id='ConfirmPassword-error']"), "The password and confirmation password do not match.");
     }
 
     @Test
@@ -97,7 +97,7 @@ public class Level_02_BasePage_2_Static {
 
         basePage.clickToElement(driver, "//button[@id='register-button']");
 
-        Assert.assertEquals(basePage.getWebElementText(driver, "//div[@class='result']"), "Your registration completed");
+        Assert.assertEquals(basePage.getElementText(driver, "//div[@class='result']"), "Your registration completed");
     }
 
     @AfterClass

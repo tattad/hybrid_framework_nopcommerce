@@ -18,27 +18,27 @@ public class RegisterPageObject extends BasePage {
 
     public String getFirstNameErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.FIRSTNAME_ERROR_MSG);
-        return getWebElementText(driver, RegisterPageUI.FIRSTNAME_ERROR_MSG);
+        return getElementText(driver, RegisterPageUI.FIRSTNAME_ERROR_MSG);
     }
 
     public String getLastNameErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.LASTNAME_ERROR_MSG);
-        return getWebElementText(driver, RegisterPageUI.LASTNAME_ERROR_MSG);
+        return getElementText(driver, RegisterPageUI.LASTNAME_ERROR_MSG);
     }
 
     public String getEmailErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.EMAIL_ERROR_MSG);
-        return getWebElementText(driver, RegisterPageUI.EMAIL_ERROR_MSG);
+        return getElementText(driver, RegisterPageUI.EMAIL_ERROR_MSG);
     }
 
     public String getPasswordErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.PASSWORD_ERROR_MSG);
-        return getWebElementText(driver, RegisterPageUI.PASSWORD_ERROR_MSG);
+        return getElementText(driver, RegisterPageUI.PASSWORD_ERROR_MSG);
     }
 
     public String getConfirmPasswordErrorMsg() {
         waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MSG);
-        return getWebElementText(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MSG);
+        return getElementText(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR_MSG);
     }
 
     public HomePageObject clickToNopCommerceLogo() {
@@ -74,6 +74,6 @@ public class RegisterPageObject extends BasePage {
 
     public String getRegisterSuccessMsg() {
         waitForElementVisible(driver, RegisterPageUI.REGISTRATION_COMPLETED_MSG);
-        return getWebElementText(driver, RegisterPageUI.REGISTRATION_COMPLETED_MSG);
+        return getElementText(driver, RegisterPageUI.REGISTRATION_COMPLETED_MSG);
     }
 }

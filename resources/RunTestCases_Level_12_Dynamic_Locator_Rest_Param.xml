@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="NopCommerce">
+    
+    <parameter name="adminUrl" value="http://demo.nopcommerce/"/>
+    <parameter name="userUrl" value="http://demo.nopcommerce/"/>
+
+    <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.nopcommerce.account.Level_12_Dynamic_Locator_Rest_Param"></class>
+        </classes>
+    </test>
+</suite>
